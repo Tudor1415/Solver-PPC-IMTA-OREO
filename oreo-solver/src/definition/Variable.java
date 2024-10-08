@@ -25,8 +25,7 @@ public class Variable {
     }
 
     public Domain getDomain() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode getDomain() de la classe Variable");
+        return this.dom;
     }
 
     public void setDomain(Domain dom) {
