@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public interface Domain extends Iterable<Integer> {
     Domain clone();
-    
+
     int size();
 
     // retourne vrai ssi la valeur v est dans le domaine
@@ -20,14 +20,12 @@ public interface Domain extends Iterable<Integer> {
     void remove(int v);
 
     void remove(int from, int to);
-    
+
     void removeAll();
 
     // supprime toutes les valeurs du domaine excepté v
     void instantiate(int v);
 
-
     Iterator<Integer> iterator();
-
 
 }

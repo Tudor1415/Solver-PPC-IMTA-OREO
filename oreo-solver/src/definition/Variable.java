@@ -2,7 +2,6 @@ package definition;
 
 import java.util.List;
 
-
 public class Variable {
     private final String name;
     private Domain dom; // le domaine associe
@@ -37,19 +36,22 @@ public class Variable {
     // retourne vrai ssi la variable est instanciee
     public boolean isInstantiated() {
         // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode isInstantiated() de la classe Variable");
+        throw new UnsupportedOperationException(
+                "Vous devez implémenter la méthode isInstantiated() de la classe Variable");
     }
 
     // retourne vrai ssi le domaine de la variable contient la valeur v
     public boolean canBeInstantiatedTo(int v) {
         // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode canBeInstantiatedTo() de la classe Variable");
+        throw new UnsupportedOperationException(
+                "Vous devez implémenter la méthode canBeInstantiatedTo() de la classe Variable");
     }
 
     // retourne le nombre de valeurs dans le domaine de la variable
     public int getDomainSize() {
         // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode getDomainSize() de la classe Variable");
+        throw new UnsupportedOperationException(
+                "Vous devez implémenter la méthode getDomainSize() de la classe Variable");
     }
 
     // supprime la valeur v du domaine de la variable
@@ -67,13 +69,15 @@ public class Variable {
     // vide le domaine : supprime toutes ses valeurs
     public void remAllValues() {
         // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode remAllValues() de la classe Variable");
+        throw new UnsupportedOperationException(
+                "Vous devez implémenter la méthode remAllValues() de la classe Variable");
     }
 
     // instancie la variable a la valeur v
     public void instantiate(int v) {
         // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode instantiate() de la classe Variable");
+        throw new UnsupportedOperationException(
+                "Vous devez implémenter la méthode instantiate() de la classe Variable");
     }
 
     // retourne la plus petite valeur du domaine
@@ -88,7 +92,8 @@ public class Variable {
         throw new UnsupportedOperationException("Vous devez implémenter la méthode getSup() de la classe Variable");
     }
 
-    // retourne la valeur affectee a la variable ssi la variable est effectivement instanciee, sinon -1
+    // retourne la valeur affectee a la variable ssi la variable est effectivement
+    // instanciee, sinon -1
     public int getValue() {
         // à compléter
         throw new UnsupportedOperationException("Vous devez implémenter la méthode getValue() de la classe Variable");
