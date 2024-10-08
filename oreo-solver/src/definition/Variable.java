@@ -1,7 +1,7 @@
 package definition;
 
+import java.util.Iterator;
 import java.util.List;
-
 
 public class Variable {
     private final String name;
@@ -35,67 +35,76 @@ public class Variable {
 
     // retourne vrai ssi la variable est instanciee
     public boolean isInstantiated() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode isInstantiated() de la classe Variable");
+        return getDomain().size() == 1;
     }
 
     // retourne vrai ssi le domaine de la variable contient la valeur v
     public boolean canBeInstantiatedTo(int v) {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode canBeInstantiatedTo() de la classe Variable");
+        return getDomain().contains(v);
     }
 
     // retourne le nombre de valeurs dans le domaine de la variable
     public int getDomainSize() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode getDomainSize() de la classe Variable");
+        return getDomain().size();
     }
 
     // supprime la valeur v du domaine de la variable
     public void remValue(int v) {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode remValue() de la classe Variable");
+        getDomain().remove(v);
     }
 
     // supprime toutes les valeurs entre min (inclus) et max (inclus)
     public void remValues(int min, int max) {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode remValues() de la classe Variable");
+        getDomain().remove(min, max);
     }
 
     // vide le domaine : supprime toutes ses valeurs
     public void remAllValues() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode remAllValues() de la classe Variable");
+        getDomain().removeAll();
     }
 
     // instancie la variable a la valeur v
     public void instantiate(int v) {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode instantiate() de la classe Variable");
+        getDomain().instantiate(v);
+
     }
 
     // retourne la plus petite valeur du domaine
     public int getInf() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode getInf() de la classe Variable");
+        Iterator<Integer> it = getDomain().iterator();
+        int min = Integer.MAX_VALUE;
+
+        while (it.hasNext())
+            if (it.next() < min)
+                min = it.next();
+
+        return min;
     }
 
     // retourne la plus grande valeur du domaine
     public int getSup() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode getSup() de la classe Variable");
+        Iterator<Integer> it = getDomain().iterator();
+        int sup = Integer.MIN_VALUE;
+
+        while (it.hasNext())
+            if (it.next() > sup)
+                sup = it.next();
+
+        return sup;
     }
 
-    // retourne la valeur affectee a la variable ssi la variable est effectivement instanciee, sinon -1
+    // retourne la valeur affectee a la variable ssi la variable est effectivement
+    // instanciee, sinon -1
     public int getValue() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode getValue() de la classe Variable");
+        if (isInstantiated()) {
+            return getDomain().iterator().next();
+        } else {
+            return -1;
+        }
     }
 
     public boolean isEmpty() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode isEmpty() de la classe Variable");
-    }
+        return (getDomainSize()==0);            
+        }
 
 }
