@@ -103,4 +103,9 @@ public class Variable {
         throw new UnsupportedOperationException("Vous devez implémenter la méthode isEmpty() de la classe Variable");
     }
 
+    @Override
+    public String toString() {
+        return "Variable{name='" + name + "', domain=" + (dom != null ? dom.toString() : "null") + "}";
+    }
+
 }

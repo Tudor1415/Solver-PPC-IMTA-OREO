@@ -1,6 +1,7 @@
 package definition;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Csp {
 
@@ -63,4 +64,14 @@ public class Csp {
         return false;
     }
 
+    @Override
+    public String toString() {
+        String varsString = vars.stream()
+                .map(Variable::toString)
+                .collect(Collectors.joining(", ", "[", "]"));
+        String consString = cons.stream()
+                .map(Constraint::toString)
+                .collect(Collectors.joining(", ", "[", "]"));
+        return "CSP Variables: " + varsString + "\nCSP Constraints: " + consString;
+    }
 }
