@@ -20,12 +20,11 @@ public class Search {
 
 	public static void bruteForceSearch(Csp csp) {
 		if (csp.allInstanciated()) {
-			if (csp.hasSolution()){
-				System.out.println("Le système a une solution " );	
-						
+			if (csp.hasSolution()) {
+				System.out.println("Le système a une solution ");
+
 			}
 
-			
 			// traitement du cas où une instanciation est complète
 			// (affichage, sauvegarde...)
 		} else {
