@@ -35,7 +35,8 @@ public class Variable {
 
     // retourne vrai ssi la variable est instanciee
     public boolean isInstantiated() {
-        return getDomain().size() == 1;
+        // à compléter
+        throw new UnsupportedOperationException("Vous devez implémenter la méthode isInstantiated() de la classe Variable");
     }
 
     // retourne vrai ssi le domaine de la variable contient la valeur v
@@ -106,5 +107,10 @@ public class Variable {
     public boolean isEmpty() {
         return (getDomainSize()==0);            
         }
+
+    @Override
+    public String toString() {
+        return "Variable{name='" + name + "', domain=" + (dom != null ? dom.toString() : "null") + "}";
+    }
 
 }

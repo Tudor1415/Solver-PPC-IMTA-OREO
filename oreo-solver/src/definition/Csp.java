@@ -1,10 +1,12 @@
 package definition;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Csp {
 
-    private final List<Variable> vars; // l'ensemble des variables du CSP. Note: les domaines sont connus au travers des variables
+    private final List<Variable> vars; // l'ensemble des variables du CSP. Note: les domaines sont connus au travers
+                                       // des variables
     private final List<Constraint> cons; // l'ensemble des contraintes du CSP (éventuellement vide)
 
     public Csp(List<Variable> vars, List<Constraint> cons) {
@@ -25,25 +27,51 @@ public class Csp {
         this.cons.add(constraint);
     }
 
-    // retourne la premiere variable non instanciée du csp, null s'il n'y en a pas/plus (toutes les variables sont instanciées)
+    // retourne la premiere variable non instanciée du csp, null s'il n'y en a
+    // pas/plus (toutes les variables sont instanciées)
     public Variable nextVarToInstantiate() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode nextVarToInstantiate() de la classe Csp");
+        for (Variable var : getVars())
+            if (!var.isInstantiated())
+                return var;
+
+        return null;
     }
 
     // retourne vrai ssi toutes les variables sont instanciées
     public boolean allInstanciated() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode allInstanciated() de la classe Csp");
+        for (Variable var : getVars())
+            if (!var.isInstantiated())
+                return false;
+
+        return true;
     }
 
-    // retourne vrai ssi le CSP possède (au moins) une solution : 
-    // l'ensemble des contraintes du CSP est vérifié
-    // ATTENTION : ce n'est pas la seule condition
+    // retourne vrai ssi le CSP possède (au moins) une solution :
     public boolean hasSolution() {
-        // à compléter
-        throw new UnsupportedOperationException("Vous devez implémenter la méthode hasSolution() de la classe Csp");
+        for (Variable var : getVars()) {
+            // Var est istanciée
+            if (!var.isInstantiated())
+                break;
+
+            // Satisfaction des contraintes
+            for (Constraint constraint : getConstraints())
+                if (!constraint.isSatisfied())
+                    break;
+
+            return true;
+        }
+
+        return false;
     }
 
-
+    @Override
+    public String toString() {
+        String varsString = vars.stream()
+                .map(Variable::toString)
+                .collect(Collectors.joining(", ", "[", "]"));
+        String consString = cons.stream()
+                .map(Constraint::toString)
+                .collect(Collectors.joining(", ", "[", "]"));
+        return "CSP Variables: " + varsString + "\nCSP Constraints: " + consString;
+    }
 }
