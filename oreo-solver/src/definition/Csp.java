@@ -48,20 +48,24 @@ public class Csp {
 
     // retourne vrai ssi le CSP possède (au moins) une solution :
     public boolean hasSolution() {
-        for (Variable var : getVars()) {
-            // Var est istanciée
-            if (!var.isInstantiated())
-                break;
-
-            // Satisfaction des contraintes
-            for (Constraint constraint : getConstraints())
-                if (!constraint.isSatisfied())
-                    break;
-
-            return true;
-        }
+        for (Variable var : getVars())
+            if (isSolution(var))
+                return true;
 
         return false;
+    }
+
+    public boolean isSolution(Variable var) {
+        // Var est istanciée
+        if (!var.isInstantiated())
+            return false;
+
+        // Satisfaction des contraintes
+        for (Constraint constraint : getConstraints())
+            if (!constraint.isSatisfied())
+                return false;
+
+        return true;
     }
 
     @Override
