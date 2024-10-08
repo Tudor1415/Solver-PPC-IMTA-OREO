@@ -15,6 +15,7 @@ public class Resolution {
 		/*
 		 * Résolution du csp : exécution de l'algorithme d'exploration (search)
 		 */
+		Search.bruteForceSearch(csp1);
 
 	}
 
